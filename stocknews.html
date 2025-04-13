@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock News</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+        .news-item { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+        h2 a { text-decoration: none; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>📈 Latest Stock News</h1>
+    <div id="news-container">Loading...</div>
+
+    <script>
+        fetch('http://localhost:3000/api/news')  // Adjust URL if deployed
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';  // Clear "Loading..." message
+
+                // Loop through data and display it
+                data.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'news-item';
+                    div.innerHTML = `
+                        <h2><a href="${item.url}" target="_blank">${item.title}</a></h2>
+                        <p>🕒 ${new Date(item.published_at).toLocaleString()}</p>
+                        <p>${item.description}</p>
+                    `;
+                    container.appendChild(div);
+                });
+            })
+            .catch(err => {
+                document.getElementById('news-container').innerText = 'Failed to load news.';
+                console.error(err);
+            });
+    </script>
+</body>
+</html>

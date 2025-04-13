@@ -1,0 +1,56 @@
+<!-- Button to trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPaymentModal">
+    + Add Payment
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-labelledby="addPaymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPaymentModalLabel">Add New Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="paymentForm">
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount ($)</label>
+              <input type="number" class="form-control" id="amount" required>
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select class="form-select" id="category">
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Entertainment</option>
+                <option>Shopping</option>
+                <option>Rent</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="date">
+            </div>
+            <div class="mb-3">
+              <label for="method" class="form-label">Payment Method</label>
+              <select class="form-select" id="method">
+                <option>Cash</option>
+                <option>UPI</option>
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="note" class="form-label">Notes</label>
+              <textarea class="form-control" id="note" rows="2"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success">Add Payment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
