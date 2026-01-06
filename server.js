@@ -1,3 +1,10 @@
+import express from "express";
+const app = express();
+
+// ADD THIS 👇
+app.get("/", (req, res) => {
+  res.send("Fman server is running ");
+});
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -31,3 +38,4 @@ app.get('/api/news', async (req, res) => {
 app.listen(3000, () => {
   console.log('🚀 Server running at http://localhost:3000');
 });
+
